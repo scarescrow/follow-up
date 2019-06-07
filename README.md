@@ -1,6 +1,6 @@
 ## Follow-Up
 
-A flask server, which serves an endpoint to send an email (with custom body and attached image) to all guests who attended the most recent meeting ((scheduled on Google Calendar).
+A flask server, which serves an endpoint to send an email (with custom body and attached image) to all guests who attended the most recent meeting (scheduled on Google Calendar).
 
 ### How it works
 
