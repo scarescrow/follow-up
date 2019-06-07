@@ -109,6 +109,8 @@ def send_message(service, message, user_id="me"):
     print('An error occurred: %s' % error)
 
 def get_attendees(service):
+    global TIMEZONE
+
     attendees = []
 
     # Set the timezon to be the same as the User's calendar
@@ -130,7 +132,10 @@ def get_attendees(service):
     events = events_result.get('items', [])
 
     if not events:
-        print('No upcoming events found.')
+        print('No recent events found.')
+        summary = ""
+        start = ""
+        attendees = []
 
     else:
         # Pick the last event from response
@@ -146,6 +151,9 @@ def get_attendees(service):
 def sendnotes():
     # First, get list of meeting attendees
     summary, start_time, attendees = get_attendees(calendar_service)
+
+    if len(attendees) == 0:
+      return json.dumps({"message": "No recent events found"})
 
     # Start creating email body
     message_subject = "Meeting Notes"

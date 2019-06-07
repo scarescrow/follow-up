@@ -7,6 +7,7 @@ A flask server, which serves an endpoint to send an email (with custom body and 
 * Once the request is sent to the API, it checks the logged-in user's calendar to find his most recent meeting.
 * From this meeting event, it extracts the email ids (if visible) of all the attendees
 * An email is then created (body of the email, and an image attachment can be sent as part of the request)
+* If there is an image attachment, it is temporarily saved as `notes.jpg` in the `workspace` folder, which is later used when sending the email.
 * This email is then sent to each of the attendees
 
 ### How to use
